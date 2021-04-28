@@ -46,17 +46,24 @@
 }
 .nav li ul a:hover {
     background:rgba(0,0,0,0.2);
-}
 .nav li ul {
     position:absolute;
-    left:-9999em;
+    left:0;
     top:36px;
     z-index:1;
+    max-height:0;
+    overflow:hidden;
+    -webkit-transform:perspective(400) rotate3d(1,0,0,-90deg);
+    -webkit-transform-origin:50% 0;
+    -webkit-transition:350ms;
+    -moz-transition:350ms;
+    -o-transition:350ms;
+    transition:350ms;
 }
 .nav ul > li:hover ul {
-    left:0;
+    max-height:1000px;
+    -webkit-transform:perspective(400) rotate3d(0,0,0,0);
 }
-
     </style>
 </head>
 <body>
