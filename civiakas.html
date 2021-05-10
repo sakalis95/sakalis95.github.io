@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body {
+                height: 100vh;
+                width: 100vw;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+            }
+            .text  {
+                margin: 2rem;
+                text-align: center;
+                }
+            .page_divider{
+                bottom: 0;
+                position: relative;
+                height: 100vh;
+               background-color: red;
+                clip-path: polygon(0 20%, 100% 80%, 100% 100%, 0 100%);
+                /* transform: rotate(-45deg) translate(-50% -50%); */
+                /* overflow: hidden; */
+                z-index: -1;
+            }
+            .flex_container{
+               display: flex;
+               flex-direction: column;
+               justify-content: space-evenly;
+               align-items: center;
+               height: 100vh;
+               width: 100vw;
+               position: absolute;                
+            }
+            .flex_item{
+                max-width: 50rem;
+            }
+            .top_description{
+                flex: 1;
+            }
+            image{
+                flex: 1;
+            }
+            .bottom_description{
+                flex: 0.5;
+            }
+            .bottom_description .text{
+                column-count: 2;
+                text-align: justify;
+                text-justify: inter-word;
+            }
+            img {
+                border-radius: 50%;
+            }
+            a{
+                display: inline-block;
+                text-decoration: none;
+                color: white;
+                border: 2px solid white;
+                border-radius: 8px;
+                padding: 10px;
+                margin: 10px;
+            }
+            a:hover{
+                color: red;
+                border: 2 px solid red;
+                background-color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <header></header>
+
+        <main class="flex_container">
+            <section class="flex_item top_description">
+                <h1 class="text" id="name">Mantas S.</h1>
+                <h4 class="text" id="occupation">UI / UX designer and developer</h4>
+            </section>
+            <div class="image">
+                <img src="https://thumbs-prod.si-cdn.com/XFgzZJEV67AM_pGkqPPzF9wyQ80=/fit-in/1072x0/https://public-media.si-cdn.com/filer/97/2c/972c4531-0552-4a49-b51b-4cdb5066bd1d/tacc1157_05_faceright_10k_rgb.jpg" height="200px" alt="Photo of me" />
+            </div>
+            <section class="flex_item bottom_description">
+            <p class="text">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae voluptates saepe dignissimos consequatur quae a corporis libero odio, eius voluptatum. Placeat, fugiat illum. Officia commodi similique consectetur, nostrum reprehenderit repudiandae rem quam vel ab officiis aperiam laudantium
+                    asperiores nemo numquam accusantium maiores rerum nulla? Quos suscipit nesciunt sed magnam iusto!
+            </p>
+        </section>
+        <a class="flex_item" href="#" class="btn">Get in touch!</a>
+        </main>
+        <div class="page_divider"></div>
+    </body>
+</html>
+</body>
+</html>
