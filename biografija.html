@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maironis</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+        @import url('https://fonts.googleapis.com/css2?family=KoHo:ital,wght@1,300&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            text-decoration: none;
+            font-size: 62.5%;
+        }
+        a:visited{
+            color: inherit;
+        }
+        /* Fonas */
+        section{
+            width: 100%;
+            height: 100vh;
+            color: #fff;
+            background: linear-gradient(
+               136deg,
+                    #fff000,
+                    #fff000,
+                    #fff000,
+                    #0d9f0d,
+                    #f51503,
+                    #f51503,
+                    #f51503
+            );
+            background-size: 400% 400%;
+            position: relative;
+            animation: change 12s ease-in-out infinite;
+            overflow: hidden;
+        }
+        @keyframes change {
+                0% {
+                    background-position: 0 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0 50%;
+                }}
+
+
+        /* meniu dalis */
+        .sidebar{
+            font-family: 'KoHo', sans-serif;
+            position: fixed;
+            left: -20rem;
+            width: 20rem;
+            height: 100vh;
+            background:rgba(43, 95, 163, 0.6);
+        }
+        .sidebar_header{
+            font-family: 'Dancing Script', cursive;
+            font-size: 8rem;
+            color: white;
+            padding-left: 3.5rem;
+            line-height: 8rem;
+            background-color:rgba(10, 73, 156, 1);
+            user-select: none;
+        }
+        .sidebar ul a{
+            display: block;
+            width: 100%;
+            line-height: 8rem;
+            font-size: 2.5rem;
+            padding-left: 3.5rem;
+            color: white;
+            border-top: 1px solid rgb(121, 125, 180);
+            border-bottom: 1px solid rgba(59, 62, 117, 1);
+        }
+        .sidebar li:hover a{
+            padding-left: 2.5rem;
+            transition: 0.5s;
+        }
+        .sidebar i{
+             margin-right: 1.5rem;   
+        }
+        #sidebar_checkbox{
+            display: none;
+        }
+        label #burger_btn,
+        label #cancel_btn{
+            position: absolute;
+            cursor: pointer;
+            border-radius: 0.2rem;
+            font-size: 2rem;
+            top: 1.5rem;
+        }
+        label #burger_btn{
+            left: 2rem;
+            color: white;
+            padding: 6px 12px;
+            transition: all 0.5s;
+            background: rgba(10, 73, 156, 0.2);
+        }
+        label #cancel_btn{
+            font-size: 2rem;
+            top: 1rem;
+            left: -4rem;
+            z-index: 2;
+            color: white;
+            padding: 6px 12px;
+            transition: all 1s;
+            background: rgb(10, 73, 156);
+        }
+         #sidebar_checkbox:checked ~ .sidebar{
+            left:0;
+            transition: all 1s;
+        }
+        #sidebar_checkbox:not(checked) ~ .sidebar{
+            transition: all 1s;
+        }
+        #sidebar_chekbox:checked ~ label #burger_btn{
+            opacity: 0;
+            pointer-events: none;
+        }
+        #sidebar_checkbox:checked ~ label #cancel_btn{
+            left: 16rem;
+        }
+        #sidebar_checkbox:checked ~ .grid-container {
+            margin-left: 20rem;
+            transition: all 1s;
+        }
+        #sidebar_checkbox:not(:checked) ~ .grid-container {
+            transition: all 1s;
+        }
+        /* Contentas */
+
+        .grid-container {
+        height: 100vh;
+        display: grid;
+            grid-template: 
+        ". header ." 1.1fr
+        "about2 about3 about4" 5fr
+        "about5 about6 about7" 4fr
+        / 1fr 1fr 1fr ;
+        overflow: auto;
+
+    }
+    .grid-item {
+        background: linear-gradient(
+                    135deg,
+                    rgb(163, 160, 160, 0.8) 0%,
+                    rgba(120, 120, 120, 0.5) 42%,
+                    rgba(51, 51, 51, 0.5) 100%
+                );
+        border: 10rem;
+        padding: 1.5rem;
+        min-width: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0rem 3rem 3rem 3rem;
+    }
+    .grid-item:hover{
+        transform: scale(1.1);
+        transition: all 1.2s;
+    }
+    .item-1 {
+        grid-area: header;
+        text-align: center;
+        font-family: 'Dancing Script', cursive;
+        font-size: 5rem;
+        margin: 0.5rem 0 2rem 0;
+    }
+    .item-2 {
+        grid-area: about2;
+        font-family: 'KoHo', sans-serif;
+        font-size: 2.3rem;
+    }
+    .item-3 {
+        grid-area: about3;
+        font-family: 'KoHo', sans-serif;
+        font-size: 2.3rem;
+    }
+    .item-4 {
+        grid-area: about4;
+        font-family: 'KoHo', sans-serif;
+        font-size: 2.3rem;
+    }
+    .item-5 {
+        grid-area: about5;
+        font-family: 'KoHo', sans-serif;
+        font-size: 2.3rem;
+    }
+    .item-6 {
+        grid-area: about6;
+        font-family: 'KoHo', sans-serif;
+        font-size: 2.3rem;
+    }
+    .item-7 {
+        grid-area: about7;
+        font-family: 'KoHo', sans-serif;
+        font-size: 2.3rem;
+    }
+    </style>
+</head>
+<body>
+    <section>
+    <input type="checkbox" id="sidebar_checkbox" />
+                <label for="sidebar_checkbox">
+                    <i class="fas fa-bars" id="burger_btn"></i>
+                    <i class="fas fa-times" id="cancel_btn"></i>
+                </label>        
+        <div class="sidebar">
+            <div class="sidebar_header"> <a href="main_page.html">Meniu</a></div>
+            <ul>
+                <li>
+                    <a href="teviske.html"><i class="fas fa-home"></i>Tėviškė</a>
+                </li>
+                <li>
+                    <a href="biografija.html"><i class="fas fa-book"></i>Biografija</a>
+                </li>
+                <li>
+                    <a href="kuryba.html"><i class="fas fa-pencil-alt"></i>Kūryba</a>
+                </li>
+                <li>
+                    <a href="eilerasciai.html"><i class="fas fa-music"></i>Eilėraščiai</a>
+                </li>
+                <li>
+                    <a href="atminimas.html"><i class="fas fa-monument"></i>Atminimas</a>
+                </li>
+            </ul>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item item-1"><a href="http://www.xn--altiniai-4wb.info/index/details/1065">Maironio biografijos etapai</a></div>
+            <div class="grid-item item-2">
+                <h1>Vaikystė, studijos</h1>
+                <br>
+                <p>Gimė 1862 m. lapkričio 2 d. turtingoje laisvųjų ūkininkų Onos ir Aleksandro Mačiulių šeimoje. Augo su trimis jaunesnėmis seserimis netoliese esančiame tėvų ūkyje – Bernotų vienkiemyje. 1874–1883 m. mokėsi Kauno gimnazijoje, pradėjo rašyti eilėraščius lenkų kalba. 1883 m. įstojo į Kijevo universitetą, literatūros studijas, kurias po metų metė ir išvažiavo į Kauno kunigų seminariją. <br> Kristijonas Donelaitis ir Antanas Baranauskas sutvirtino Maironio pasiryžimą kurti lietuvių kalba. Sudeginęs anksčiau parašytas lenkiškas eiles, ėmė rašyti lietuviškai. 1885 m. debiutavo <i>Aušroje</i>, Zvalionio slapyvardžiu nusiuntęs eilėraštį <i>Lietuvos vargas</i>. Rašė publicistinius straipsnius į nelegalią lietuvių spaudą (<i>Aušrą, Šviesą</i>).</p></div>
+            <div class="grid-item item-3">
+                <h1>Susidomėjimas tėvyne</h1>
+                <br>
+                <p>Pradedantis poetas suvokė populiarios Lietuvos istorijos, parašytos lietuvių kalba, poreikį, jos reikšmę, telkiant tautinę bendriją ir lietuvių literatūros skaitytojus. Per pirmuosius metus seminarijoje parašė trumpą kompiliacinę Lietuvos istoriją <i>Apsakymai apie Lietuvos praeigą</i>. Tai buvo pirmoji ištisinė, plačiam skaitytojų ratui skirta Lietuvos istorija lietuvių kalba. 1888 m., baigdamas seminariją, sukūrė rankraščiu likusią poemą <i>Lietuva</i>, paremtą poetinės kelionės po Lietuvos kraštą siužetu, dedikavo ją Antanui Baranauskui kaip naujosios lietuvių literatūros pradininkui. Tad pirmaisiais didesniais darbais būsimasis Maironis susikūrė savo poetinio pasaulėvaizdžio atramas – ateičiai atvirą Lietuvos istorinį laiką ir erdvę.</p></div>
+            <div class="grid-item item-4">
+                <h1>Kūrybingiausias periodas</h1>
+                <br>
+                <p>Kūrybingiausias poeto laikas – studijos Peterburgo Romos katalikų dvasinėje akademijoje (1888–1892) ir dveji darbo metai dėstant Žemaičių kunigų seminarijoje Kaune (1892–1894). Šiuo metu Mačiulis rašė eilėraščius, kurių dalį skelbė nelegalioje dešiniojoje lietuvių spaudoje, sukūrė poemą <i>Tarp skausmų į garbę</i>. Rusijos imperijai varžant ir slopinant lietuvių kultūrinį gyvenimą, Maironis vis dėlto buvo įsitikinęs profesionalaus lietuvių meno perspektyvomis. Pasirinko Maironio slapyvardį, biografų siejamą su poeto gimtinės vietovardžiais – Maironių, Maironiškių kaimų vardais. Dirbdamas Kaune parengė savo pirmąsias grožinės kūrybos knygas – poemą <i>Tarp skausmų į garbę</i> ir poezijos rinkinį <i>Pavasario balsai</i>.</p>
+            </div>
+            <div class="grid-item item-5">
+                <h1>Veiklos sritys</h1>
+                <br>
+                <p>1894–1909 m. Maironis buvo Peterburgo dvasinės akademijos profesorius, dėstė dogminę ir moralinę teologiją. 1903 m. įgijo teologijos daktaro laipsnį. Kilo bažnytinės karjeros laiptais. Tuo pat metu aktyviai dalyvavo lietuvių visuomenės gyvenime (Peterburgo lietuvių draugijų veikloje, buvo lietuvių spaudos bendradarbis, vienas krikščionių demokratų partijos programos bendraautorių). 1909 m. grįžo į Kauną dirbti Kauno kunigų seminarijos rektoriumi, iš esmės pertvarkė akademinį ir kultūrinį seminarijos gyvenimą, rūpinosi materialine jos gerove.</p>
+            </div>
+            <div class="grid-item item-6">
+                <h1>Atkūrus nepriklausomybę</h1>
+                <br>
+                <p>Nepriklausomos Lietuvos Respublikos metais Maironis toliau vadovavo Kauno kunigų seminarijai, dalyvavo kuriant Lietuvos universitetą (vėliau VDU): nuo 1922 m. buvo Teologijos fakulteto steigimo komisijos pirmininkas, tais pat metais kurį laiką – ir šio fakulteto dekanas. Atsisakęs dekano pareigų nuo 1922 m. iki mirties dirbo Teologijos fakulteto Moralinės teologijos katedros vedėju, dėstė moralinės teologijos kursą. Be šios disciplinos, Maironis universitete yra dėstęs ir lietuvių literatūros istorijos kursus.</p>
+            </div>
+            <div class="grid-item item-7">
+                <h1>Gyvenimo pabaiga</h1>
+                <br>
+                <p>Mirė 1932 m. birželio 28-ąją Kaune, palaidotas Kauno arkikatedros bazilikos kriptoje. Maironio namuose, jo gyventuose kambariuose 1936 m. buvo įkurtas jo muziejus, vėliau tapęs Lietuvių literatūros muziejumi, kuriame kaupiami ir saugomi lietuvių rašytojų rankraščiai, kita archyvinė medžiaga, rengiamos lietuvių literatūrą, rašytojus pristatančios parodos.</p>
+            </div>
+        </section>
+</body>
+</html>
