@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maironis</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+        @import url('https://fonts.googleapis.com/css2?family=KoHo:ital,wght@1,300&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            text-decoration: none;
+            font-size: 62.5%;
+        }
+        a:visited{
+            color: inherit;
+        }
+        /* Fonas */
+        section{
+            width: 100%;
+            height: 100vh;
+            color: #fff;
+            background: linear-gradient(
+               136deg,
+                    #fff000,
+                    #fff000,
+                    #fff000,
+                    #0d9f0d,
+                    #f51503,
+                    #f51503,
+                    #f51503
+            );
+            background-size: 400% 400%;
+            position: relative;
+            animation: change 12s ease-in-out infinite;
+            overflow: hidden;
+        }
+        @keyframes change {
+                0% {
+                    background-position: 0 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0 50%;
+                }}
+
+
+        /* meniu dalis */
+        .sidebar{
+            font-family: 'KoHo', sans-serif;
+            position: fixed;
+            left: -20rem;
+            width: 20rem;
+            height: 100vh;
+            background:rgba(43, 95, 163, 0.6);
+        }
+        .sidebar_header{
+            font-family: 'Dancing Script', cursive;
+            font-size: 8rem;
+            color: white;
+            padding-left: 3.5rem;
+            line-height: 8rem;
+            background-color:rgba(10, 73, 156, 1);
+            user-select: none;
+        }
+        .sidebar ul a{
+            display: block;
+            width: 100%;
+            line-height: 8rem;
+            font-size: 2.5rem;
+            padding-left: 3.5rem;
+            color: white;
+            border-top: 1px solid rgb(121, 125, 180);
+            border-bottom: 1px solid rgba(59, 62, 117, 1);
+        }
+        .sidebar li:hover a{
+            padding-left: 2.5rem;
+            transition: 0.5s;
+        }
+        .sidebar i{
+             margin-right: 1.5rem;   
+        }
+        #sidebar_checkbox{
+            display: none;
+        }
+        label #burger_btn,
+        label #cancel_btn{
+            position: absolute;
+            cursor: pointer;
+            border-radius: 0.2rem;
+            font-size: 2rem;
+            top: 1.5rem;
+        }
+        label #burger_btn{
+            left: 2rem;
+            color: white;
+            padding: 6px 12px;
+            transition: all 0.5s;
+            background: rgba(10, 73, 156, 0.2);
+        }
+        label #cancel_btn{
+            font-size: 2rem;
+            top: 1rem;
+            left: -4rem;
+            z-index: 2;
+            color: white;
+            padding: 6px 12px;
+            transition: all 1s;
+            background: rgb(10, 73, 156);
+        }
+         #sidebar_checkbox:checked ~ .sidebar{
+            left:0;
+            transition: all 1s;
+        }
+        #sidebar_checkbox:not(checked) ~ .sidebar{
+            transition: all 1s;
+        }
+        #sidebar_chekbox:checked ~ label #burger_btn{
+            opacity: 0;
+            pointer-events: none;
+        }
+        #sidebar_checkbox:checked ~ label #cancel_btn{
+            left: 16rem;
+        }
+        #sidebar_checkbox:checked ~ .grid-container {
+            margin-left: 20rem;
+            transition: all 1s;
+        }
+        #sidebar_checkbox:not(:checked) ~ .grid-container {
+            transition: all 1s;
+        }
+        /* Contentas */
+
+        .grid-container {
+        height: 100vh;
+        display: grid;
+        grid-template: 
+        ". header header header ." 1.1fr
+        "grupe1 grupe1 grupe1 grupe2 grupe2" 1fr
+        "knyga1 knyga2 knyga3 knyga4 knyga5" 5fr
+        "grupe3 grupe3 grupe3 grupe3 grupe4" 1fr
+        "knyga6 knyga7 knyga8 knyga9 knyga10" 5fr
+        / 1fr 1fr 1fr 1fr 1fr ;
+        overflow: auto;
+    }
+    .grid-item {
+        background: linear-gradient(
+                    135deg,
+                    rgb(163, 160, 160, 0.8) 0%,
+                    rgba(120, 120, 120, 0.5) 42%,
+                    rgba(51, 51, 51, 0.5) 100%
+                );
+        border: 10rem;
+        padding: 1.5rem;
+        min-width: 120px;
+        max-height: 30rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin: 0rem 3rem 3rem 3rem;
+    }
+    .grid-item-to-h:hover{
+        transform: scale(1.1);
+        transition: all 1.2s;
+    }
+    .item-1 {
+        grid-area: header;
+        text-align: center;
+        font-family: 'Dancing Script', cursive;
+        font-size: 5rem;
+        margin: 0.5rem 0 2rem 0;
+    }
+    .item-not-1{
+        font-family: 'KoHo', sans-serif;
+        font-size: 2.3rem;
+    }
+    .item-2 {
+        grid-area: grupe1;
+    }
+    .item-3 {
+        grid-area: grupe2;
+    }
+    .item-4 {
+        grid-area: knyga1;
+    }
+    .item-5 {
+        grid-area: knyga2;
+    }
+    .item-6 {
+        grid-area: knyga3;
+    }
+    .item-7 {
+        grid-area: knyga4;
+    }    
+    .item-8 {
+        grid-area: knyga5;
+    }
+    .item-9 {
+        grid-area: grupe3;
+    }
+    .item-10 {
+        grid-area: grupe4;
+    }
+    .item-11 {
+        grid-area: knyga6;
+    }
+    .item-12 {
+        grid-area: knyga7;
+    }
+    .item-13 {
+        grid-area: knyga8;
+    }
+    .item-14 {
+        grid-area: knyga9;
+    }    
+    .item-15 {
+        grid-area: knyga10;
+    }
+    
+    </style>
+</head>
+<body>
+    <section>
+    <input type="checkbox" id="sidebar_checkbox" />
+                <label for="sidebar_checkbox">
+                    <i class="fas fa-bars" id="burger_btn"></i>
+                    <i class="fas fa-times" id="cancel_btn"></i>
+                </label>        
+        <div class="sidebar">
+            <div class="sidebar_header"> <a href="main_page.html">Meniu</a></div>
+            <ul>
+                <li>
+                    <a href="teviske.html"><i class="fas fa-home"></i>Tėviškė</a>
+                </li>
+                <li>
+                    <a href="biografija.html"><i class="fas fa-book"></i>Biografija</a>
+                </li>
+                <li>
+                    <a href="kuryba.html"><i class="fas fa-pencil-alt"></i>Kūryba</a>
+                </li>
+                <li>
+                    <a href="eilerasciai.html"><i class="fas fa-music"></i>Eilėraščiai</a>
+                </li>
+                </ul>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item item-1">Maironio kūryba</div>
+            <div class="grid-item item-not-1 item-2">
+                <h1>Istorinė draminė trilogija</h1>
+            </div>
+            <div class="grid-item item-not-1 item-3">
+                <h1>Poemos</h1>
+            </div>
+            <div class="grid-item item-not-1 item-4">
+                <h1><img src="https://www.limis.lt/limisk-portlet/exhibit/resource/image/3876820_130000003160038_L" alt="Kęstučio mirtis, Maironis" height="150rem">
+                    <br>
+                    Kęstučio mirtis (1921 m.)
+                </h1>
+            </div>
+            <div class="grid-item item-not-1 grid-item-to-h item-5">
+                <h1><img src="https://www.limis.lt/limisk-portlet/exhibit/resource/image/3877962_130000000821278_L" alt="Vytautas pas kryžiuočius, Maironis" height="150rem">
+                    <br>
+                    Vytautas pas kryžiuočius (1925 m.)
+                </h1>
+            </div>
+            <div class="grid-item item-not-1 grid-item-to-h item-6">
+                <h1><img src="https://www.limis.lt/limisk-portlet/exhibit/resource/image/130000001100802_130000001101031_L" alt="Didysis Vytautas – karalius, Maironis" height="150rem">
+                    <br>
+                    Didysis Vytautas – karalius (1930 m.)
+                </h1>
+            </div>
+            <div class="grid-item item-not-1 grid-item-to-h item-7">
+                <h1><img src="https://maironiomuziejus.lt/wp-content/uploads/2021/03/Poema-%E2%80%9ETarp-skausmu-i-garbe.-Tilze.-1895-m..jpg" alt="Tarp skausmų į garbę, Maironis" height="150rem">
+                    <br>
+                    Tarp skausmų į garbę (1895 m., S. Garnio slapyvardžiu)
+                </h1>
+            </div>
+            <div class="grid-item item-not-1 grid-item-to-h item-8">
+                <h1><img src="https://www.limis.lt/limisk-portlet/exhibit/resource/image/4020526_130000003157075_L" alt="Nuo Birutės kalno, Maironis" height="150rem">
+                    <br>
+                    Nuo Birutės kalno (1895 m.)
+                </h1>
+            </div>
+            <div class="grid-item item-not-1 item-9">
+                <h1>Poemos</h1>
+            </div>
+            <div class="grid-item item-not-1 item-10">
+                <h1>Rinkiniai</h1>
+            </div>
+            <div class="grid-item item-not-1 grid-item-to-h item-11">
+                <h1><img src="https://www.limis.lt/limisk-portlet/exhibit/resource/image/3082787_130000002992848_L" alt="Jaunoji Lietuva, Maironis" height="150rem">
+                    <br>
+                    Jaunoji Lietuva (1907 m.)
+                </h1>
+            </div>
+            <div class="grid-item item-not-1 grid-item-to-h item-12">
+                <h1><img src="https://www.limis.lt/limisk-portlet/exhibit/resource/image/3897623_130000002975906_L" alt="Raseinių Magdė, Maironis" height="150rem">
+                    <br>
+                    Raseinių Magdė (1909 m.)
+                </h1>
+            </div>
+            <div class="grid-item item-not-1 grid-item-to-h item-13">
+                <h1><img src="https://www.limis.lt/limisk-portlet/exhibit/resource/image/3628945_130000002970959_L" alt="Mūsų vargai, Maironis" height="150rem">
+                    <br>
+                    Mūsų vargai (1920 m.)
+                </h1>
+            </div>
+            <div class="grid-item item-not-1 grid-item-to-h item-14">
+                <h1><img src="https://www.limis.lt/limisk-portlet/exhibit/resource/image/4024857_130000002971805_L" alt="Jūratė ir Kastytis, Maironis" height="150rem">
+                    <br>
+                    Jūratė ir Kastytis (1920 m.)
+                </h1>
+            </div>
+            <div class="grid-item item-not-1 grid-item-to-h item-15">
+                <h1><img src="https://lh3.googleusercontent.com/proxy/lu7jpDTVUZfWREXMhVCU1ZDbO_1xr97EWwSX6Ph6FUgoW5tBMnyaZnsJURee3psVUQIcVI5Sq2W1b55VQmVz3rfpH-c_u7zslbrWryVmvg5nOEKf2FsU1PCVcMN26BRy12717715R3QFj2a1Ew" alt="Pavasario balsai, Maironis" height="150rem">
+                    <br>
+                    Pavasario balsai (1895 m.)
+                </h1>
+            </div>
+        </section>
+</body>
+</html>

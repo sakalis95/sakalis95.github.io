@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maironis</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css");
+        @import url('https://fonts.googleapis.com/css2?family=KoHo:ital,wght@1,300&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+            text-decoration: none;
+            font-size: 62.5%;
+        }
+        a:visited{
+            color: inherit;
+        }
+        /* Fonas */
+        section{
+            width: 100%;
+            height: 100vh;
+            color: #fff;
+            background: linear-gradient(
+               136deg,
+                    #fff000,
+                    #fff000,
+                    #fff000,
+                    #0d9f0d,
+                    #f51503,
+                    #f51503,
+                    #f51503
+            );
+            background-size: 400% 400%;
+            position: relative;
+            animation: change 12s ease-in-out infinite;
+            overflow: hidden;
+        }
+        @keyframes change {
+                0% {
+                    background-position: 0 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0 50%;
+                }}
+
+
+        /* meniu dalis */
+        .sidebar{
+            font-family: 'KoHo', sans-serif;
+            position: fixed;
+            left: -20rem;
+            width: 20rem;
+            height: 100vh;
+            background:rgba(43, 95, 163, 0.6);
+        }
+        .sidebar_header{
+            font-family: 'Dancing Script', cursive;
+            font-size: 8rem;
+            color: white;
+            padding-left: 3.5rem;
+            line-height: 8rem;
+            background-color:rgba(10, 73, 156, 1);
+            user-select: none;
+        }
+        .sidebar ul a{
+            display: block;
+            width: 100%;
+            line-height: 8rem;
+            font-size: 2.5rem;
+            padding-left: 3.5rem;
+            color: white;
+            border-top: 1px solid rgb(121, 125, 180);
+            border-bottom: 1px solid rgba(59, 62, 117, 1);
+        }
+        .sidebar li:hover a{
+            padding-left: 2.5rem;
+            transition: 0.5s;
+        }
+        .sidebar i{
+             margin-right: 1.5rem;   
+        }
+        #sidebar_checkbox{
+            display: none;
+        }
+        label #burger_btn,
+        label #cancel_btn{
+            position: absolute;
+            cursor: pointer;
+            border-radius: 0.2rem;
+            font-size: 2rem;
+            top: 1.5rem;
+        }
+        label #burger_btn{
+            left: 2rem;
+            color: white;
+            padding: 6px 12px;
+            transition: all 0.5s;
+            background: rgba(10, 73, 156, 0.2);
+        }
+        label #cancel_btn{
+            font-size: 2rem;
+            top: 1rem;
+            left: -4rem;
+            z-index: 2;
+            color: white;
+            padding: 6px 12px;
+            transition: all 1s;
+            background: rgb(10, 73, 156);
+        }
+         #sidebar_checkbox:checked ~ .sidebar{
+            left:0;
+            transition: all 1s;
+        }
+        #sidebar_checkbox:not(checked) ~ .sidebar{
+            transition: all 1s;
+        }
+        #sidebar_chekbox:checked ~ label #burger_btn{
+            opacity: 0;
+            pointer-events: none;
+        }
+        #sidebar_checkbox:checked ~ label #cancel_btn{
+            left: 16rem;
+        }
+        #sidebar_checkbox:checked ~ .grid-container {
+            margin-left: 20rem;
+            transition: all 1s;
+        }
+        #sidebar_checkbox:not(:checked) ~ .grid-container {
+            transition: all 1s;
+        }
+        /* Contentas */
+
+        .grid-container {
+        height: 100vh;
+        display: grid;
+            grid-template: 
+        ". header ." 1fr
+        "name1 name2 name3" 1fr
+        "poem1 poem2 poem3" 11fr
+        / 1fr 1fr 1fr ;
+        overflow: auto;
+
+    }
+    .grid-item {
+        background: linear-gradient(
+                    135deg,
+                    rgb(163, 160, 160, 0.8) 0%,
+                    rgba(120, 120, 120, 0.5) 42%,
+                    rgba(51, 51, 51, 0.5) 100%
+                );
+        border: 10rem;
+        padding: 1.5rem;
+        min-width: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        /* align-items: center; */
+        margin: 0rem 3rem 3rem 3rem;
+    }
+    .grid-item-to-h:hover{
+        transform: scale(1.04);
+        transition: all 1.2s;
+    }
+    .item-1 {
+        grid-area: header;
+        text-align: center;
+        font-family: 'Dancing Script', cursive;
+        font-size: 5rem;
+        margin: 0.5rem 0 2rem 0;
+    }
+    .item-2 {
+        grid-area: name1;
+        font-family: 'KoHo', sans-serif;
+        font-size: 2.3rem;
+    }
+    .item-3 {
+        grid-area: name2;
+        font-family: 'KoHo', sans-serif;
+        font-size: 2.3rem;
+    }
+    .item-4 {
+        grid-area: name3;
+        font-family: 'KoHo', sans-serif;
+        font-size: 2.3rem;
+    }
+    .item-5 {
+        grid-area: poem1;
+        font-family: 'KoHo', sans-serif;
+        font-size: 2.3rem;
+    }
+    .item-6 {
+        grid-area: poem2;
+        font-family: 'KoHo', sans-serif;
+        font-size: 2.3rem;
+    }
+    .item-7 {
+        grid-area: poem3;
+        font-family: 'KoHo', sans-serif;
+        font-size: 2.3rem;
+    }
+    </style>
+</head>
+<body>
+    <section>
+    <input type="checkbox" id="sidebar_checkbox" />
+                <label for="sidebar_checkbox">
+                    <i class="fas fa-bars" id="burger_btn"></i>
+                    <i class="fas fa-times" id="cancel_btn"></i>
+                </label>        
+        <div class="sidebar">
+            <div class="sidebar_header"> <a href="main_page.html">Meniu</a></div>
+            <ul>
+                <li>
+                    <a href="teviske.html"><i class="fas fa-home"></i>Tėviškė</a>
+                </li>
+                <li>
+                    <a href="biografija.html"><i class="fas fa-book"></i>Biografija</a>
+                </li>
+                <li>
+                    <a href="kuryba.html"><i class="fas fa-pencil-alt"></i>Kūryba</a>
+                </li>
+                <li>
+                    <a href="eilerasciai.html"><i class="fas fa-music"></i>Eilėraščiai</a>
+                </li>
+            </ul>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item item-1"><a href="https://lt.wikisource.org/wiki/Maironis">Maironio eilėraščiai</a></div>
+            <div class="grid-item grid-item-to-h item-2">
+                <h1>Lietuva brangi (1920 m.)</h1>
+            </div>
+            <div class="grid-item grid-item-to-h item-3">
+                <h1>Trakų pilis (1892 m.)</h1>
+            </div>
+            <div class="grid-item grid-item-to-h item-4">
+                <h1>Milžinų kapai (1895 m.)</h1>
+            </div>
+            <div class="grid-item grid-item-to-h item-5">
+                <p>Graži tu, mano brangi tėvyne,<br>Šalis, kur miega kapuos didvyriai:<br>Graži tu savo dangaus mėlyne!<br>Brangi: tiek vargo, kančių prityrei.<br><br>Kaip puikūs slėniai sraunios Dubysos,<br>Miškais lyg rūta kalnai žaliuoja;<br>O po tuos kalnus sesutės visos<br>Griaudžiai malonias dainas ringuoja.<br><br>Ten susimąstęs tamsus Nevėžis,<br>Kaip juosta juosia žaliąsias pievas;<br>Banguoja, vagą giliai išrėžęs;<br>Jo gilią mintį težino Dievas.<br><br>Kaip puikūs tavo dvarai, tėvyne,<br>Baltai iš sodų žalių bekyšą!<br>Tik brangią kalbą tėvų pamynę<br>Jie mūsų širdis mažai ką riša.<br><br>Kaip linksma sodžiuos, kai vyturėlis<br>Jaukiai pragysta, aukštai iškilęs,<br>Ar saulė leidžias, ir vakarėlis,<br>Ramumą neša, saldžiai nutilęs.<br><br>Bažnyčios tavo ne tiek gražybe,<br>Ne dailės turtais, ne auksu žiba;<br>Bet dega meilės, maldos galybe,<br>Senųjų amžių gyva tikyba.<br><br>Kai ten prieš sumą visi sutarę<br>Graudžiai užtraukia „Pulkim ant kelių",<br>Jausmai bedievio vėl atsidarę<br>Tikėti mokos nuo tų vaikelių.<br><br>Graži tu, mano brangi tėvyne,<br>Šalis, kur miega kapuos didvyriai!<br>Ne veltui bočiai tave taip gynė,<br>Ne veltui dainiai plačiai išgyrė!<br></p>
+            </div>
+            <div class="grid-item grid-item-to-h item-6">
+                <p>Pelėsiais ir kerpėm apaugus aukštai<br>Trakų štai garbinga pilis!<br>Jos aukštus valdovus užmigdė kapai,<br>O ji tebestovi dar vis.<br>Bet amžiai bėga, ir griūvančios sienos<br>Kas dieną nyksta, apleistos ir vienos!..<br><br>Kai vėjas pakyla ir drumsčias vanduo,<br>Ir ežeras veržias platyn, –<br>Banga gena bangą, ir bokšto akmuo<br>Paplautas nuvirsta žemyn.<br>Taip griūva sienos, liūdnesnės kas dieną,<br>Graudindamos jautrią širdį ne vieną.<br><br>Pilis! Tu tiek amžių praleidai garsiai!<br>Ir tiek mums davei milžinų!<br>Tu Vytauto didžio galybę matei,<br>Kad jojo tarp savo pulkų!<br>Kur tavo galia, garsi palikimais?<br>Kur ta senovė, brangi atminimais?<br><br>Nutilusios sienos, apleistos visų,<br>Be sargo, ginklų, be žmogaus!<br>Kiek primenat jūs man brangiausių laikų<br>Ant vieškelio amžių plataus!<br>Laikai brangiausi! Ar mums dar sugrįšte?<br>Ar vien minėsme kaip savo jaunystę?<br><br>Kada tik keliu važiavau pro Trakus,<br>Man verkė iš skausmo širdis;<br>Gaili ašarėlė beplovė skruostus<br>Ir mėlynas temdė akis!<br>Ir veltui dvasią raminti norėjau,<br>Aplinkui vien tamsią naktį regėjau.<br></p>
+            </div>
+            <div class="grid-item grid-item-to-h item-7">
+                <p>Kur lygūs laukai,<br>Snaudžia tamsūs miškai,<br>Lietuviai barzdočiai dūmoja;<br>Galanda kirvius,<br>Kalavijus aštrius<br>Ir juodbėrį žirgą balnoja.<br><br>Nuo Prūsų šalies<br>Kaip sparnai debesies<br>Padangėmis raitosi dūmai;<br>Tai gaisro ugnis<br>Šviečia diena naktis:<br>Liepsnoja ir girios, ir rūmai.<br><br>Tarp tyrų plačių<br>Ne staugimas žvėrių;<br>O ne! tai našlaitės lietuvės:<br>Ar verkia sūnaus,<br>Ar bernužio brangaus,<br>Kurs jų nebeginsiąs pražuvęs.<br><br>Kryžiuočių seniai<br>Suvadinti svečiai<br>Į vaišes per Lietuvą traukia;<br>Ištroškę garbės,<br>Kai aušra patekės,<br>Išvys, ko visai nebelaukia.<br><br>Lietuvių pulkai,<br>Kaip apsako žvalgai,<br>Ties Kaunu per Nemuną plaukia;<br>Po kaimus šauklys<br>(Jo po putų arklys)<br>Į kovą lietuvninkus šaukia.<br><br>Klaidu tarp miškų!<br>Vien tik ugnys gaisrų<br>Per Lietuvą kelią berodo.<br>Užtemęs dangus<br>Mėto tankius žaibus;<br>Beklaidžiot svečiams nusibodo.<br><br>Sutrinko miškai<br>Lyg Perkūnas aukštai,<br>Ir štai netikėtai lietuviai<br>Tarytum ugnis,<br>Kad ant stogo užšvis,<br>Apraitė kryžiuočius užgriuvę.<br><br>O, buvo mūšys!<br>Apsiniaukus naktis<br>Jį dienai parodyt drovėjos;<br>Tik kūnų šimtai,<br>Suvartyti keistai,<br>Ilgai, dar ilgai ten ilsėjos.<br><br>Dabar ten baisu<br>Ir nakčia nedrąsu!<br>Net vyrai aplenkti mėginą:<br>Esą tai senų<br>Kapai milžinų,<br>Ir kartais net pasivaidiną.<br></p>
+            </div>
+        </section>
+</body>
+</html>
